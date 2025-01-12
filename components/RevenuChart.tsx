@@ -27,7 +27,7 @@ function RevenuChart({
   const data = revenues.map((r) => ({
     name: `${r.revenue_year}${String(r.revenue_month).padStart(2, "0")}`,
     revenue: Math.round(r.revenue / 1000),
-    growRage: r.revenue_growth_rate ?? 0,
+    growRate: r.revenue_growth_rate ?? 0,
   }));
 
   return (
@@ -96,7 +96,7 @@ function RevenuChart({
             {/* Line chart linked to right Y-axis */}
             <Line
               yAxisId="right"
-              dataKey="growRage"
+              dataKey="growRate"
               stroke="#cd5151"
               name="單月營收年增率"
               dot={false}

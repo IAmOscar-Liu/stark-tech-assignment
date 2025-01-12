@@ -12,7 +12,7 @@ export function getStockRevenueTicks(
   data: {
     name: string;
     revenue: number;
-    growRage: number;
+    growRate: number;
   }[],
 ) {
   const dataLength = data.length;
@@ -20,7 +20,7 @@ export function getStockRevenueTicks(
     .filter((d) => {
       if (dataLength > 58) return d.name.endsWith("01");
       if (dataLength > 34) return /.*(01|07)$/.test(d.name);
-      if (dataLength > 16) return /.*(01|04|07|10)$/.test(d.name);
+      if (dataLength > 14) return /.*(01|04|07|10)$/.test(d.name);
       return true;
     })
     .map((d) => d.name);

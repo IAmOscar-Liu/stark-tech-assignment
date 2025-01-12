@@ -1,3 +1,11 @@
+## Stark Tech 前端評測
+
+姓名：劉克群
+
+本評測使用 [Next.js](https://nextjs.org) 15 版搭配最新的 React 19 來完成
+
+本評測已部署至 [https://stark-tech-assignment-kxidqkqjg-oscar-lius-projects.vercel.app/](https://stark-tech-assignment-kxidqkqjg-oscar-lius-projects.vercel.app/)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
