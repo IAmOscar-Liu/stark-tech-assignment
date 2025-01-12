@@ -1,6 +1,6 @@
 "use client";
 
-import { formatNumber } from "@/lib/number";
+import { formatNumber } from "@/lib/formatter";
 import { getStockRevenueTicks } from "@/lib/stockRevenue";
 import { cn } from "@/lib/utils";
 import { StockMonthRevenue } from "@/types";

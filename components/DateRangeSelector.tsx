@@ -1,6 +1,15 @@
 "use client";
 
+import { DEFAULT_VALUES } from "@/constants";
+import { useToast } from "@/hooks/use-toast";
+import { CustomDate } from "@/lib/formatter";
+import { cn } from "@/lib/utils";
+import { CalendarIcon } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
+import { Calendar } from "./ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import {
   Select,
   SelectContent,
@@ -9,15 +18,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { DEFAULT_VALUES } from "@/consstants";
-import { CustomDate } from "@/lib/date";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { cn } from "@/lib/utils";
-import { CalendarIcon } from "lucide-react";
-import { Button } from "./ui/button";
-import { Calendar } from "./ui/calendar";
-import { useToast } from "@/hooks/use-toast";
 
 function DateRangeSelector() {
   const router = useRouter();
@@ -33,9 +33,9 @@ function DateRangeSelector() {
     newStartAt,
     newEndAt,
   }: {
-    newDuration: number | undefined;
-    newStartAt: Date | undefined;
-    newEndAt: Date | undefined;
+    newDuration: typeof duration;
+    newStartAt: typeof startAt;
+    newEndAt: typeof endAt;
   }) => {
     const params = new URLSearchParams(searchParams.toString());
     params.delete("duration");
@@ -92,11 +92,9 @@ function DateRangeSelector() {
     searchParams.get("end_date"),
   ]);
 
-  const handleDurationChange = async (newDuration: string) => {
-    if (newDuration === "manual") {
-      setDuration(undefined);
-      return;
-    }
+  const handleDurationChange = (newDuration: string) => {
+    if (newDuration === "manual") return setDuration(undefined);
+
     setDuration(+newDuration);
     router.push(
       pathname +

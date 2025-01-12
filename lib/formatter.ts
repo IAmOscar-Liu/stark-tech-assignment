@@ -1,3 +1,7 @@
+export function formatNumber(value: number) {
+  return value.toLocaleString("en-US");
+}
+
 export class CustomDate {
   private date: Date;
 
@@ -34,10 +38,10 @@ export class CustomDate {
     return this.date;
   }
 
-  getFormatedDate(spliter?: string) {
+  getFormatedDate(splitter?: string) {
     const year = this.date.getFullYear();
     const month = String(this.date.getMonth() + 1).padStart(2, "0"); // Months are zero-based
     const day = String(this.date.getDate()).padStart(2, "0");
-    return `${year}${spliter ?? "-"}${month}${spliter ?? "-"}${day}`;
+    return `${year}${splitter ?? "-"}${month}${splitter ?? "-"}${day}`;
   }
 }

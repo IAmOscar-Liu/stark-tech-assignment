@@ -1,6 +1,6 @@
 "use client";
 
-import { formatNumber } from "@/lib/number";
+import { formatNumber } from "@/lib/formatter";
 import { cn } from "@/lib/utils";
 import { StockMonthRevenue } from "@/types";
 import { useEffect, useRef } from "react";
